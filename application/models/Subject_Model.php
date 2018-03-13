@@ -39,5 +39,15 @@ class Subject_Model extends CI_Model {
         return $query->result();
     }
 
+    public function getQuestionBySubjSess($subj_sess)
+    {
+        $sql = "SELECT * FROM subject_tb s 
+                LEFT JOIN question_tb q  ON q.`subject_sess` = s.`subject_sess`
+                LEFT JOIN option_tb o ON o.`question_sess` = q.`question_sess`
+                WHERE s.`subject_sess` = '$subj_sess'";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
 }
 ?>

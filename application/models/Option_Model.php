@@ -19,5 +19,12 @@ class Option_Model extends CI_Model {
         return $this->db->affected_rows();
     }
 
+    public function allOption()
+    {
+        $sql = "SELECT * FROM option_tb";
+        $result = $this->db->query($sql);
+        return $result->result();
+    }
+
 }
 ?>

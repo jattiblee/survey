@@ -61,6 +61,7 @@ $route['generateid'] = 'Survey/generateId';
 $route['createquestion'] = 'Survey/inputquestion';
 
 $route['detail/(:num)'] = 'Survey/detail';
+$route['response/(:num)'] = 'Survey/response';
 
 $route['login'] = 'Account/login';
 $route['logout'] = 'Account/logout';

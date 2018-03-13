@@ -26,6 +26,13 @@ class Question_Model extends CI_Model {
         return $query->result();
     }
 
+    public function allQuestion()
+    {
+        $sql = "SELECT * FROM question_tb";
+        $result = $this->db->query($sql);
+        return $query->result();
+    }
+
 //     SELECT * FROM subject_tb s 
 // LEFT JOIN question_tb q  ON q.`subject_sess` = s.`subject_sess`
 // LEFT JOIN option_tb o ON o.`question_sess` = q.`question_sess`

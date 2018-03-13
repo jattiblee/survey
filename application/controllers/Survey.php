@@ -140,9 +140,28 @@ class Survey extends CI_Controller {
 		$idUser = $this->session->userdata('id_user');
 
 		$subj_sess = $this->uri->segment(2);
+
+		$getQuestionBySubjSess = $this->Question_Model->getQuestionBySubjSession($subj_sess);
+
+		$optionAll = $this->Option_Model->allOption();
+
+		foreach ($getQuestionBySubjSess as $key => $value) {
+			// $question[$value->question]['subject_session'] = $value->subject_sess;
+
+			foreach ($optionAll as $k => $v) {
+				if ($value->question_sess == $v->question_sess) {
+					$question[$value->question][$v->option]['idOption'] = $v->id_option;
+				}
+				
+			}
+
+		}
+		// echo "<pre>";
+		// print_r($question);
 		
 		$data = array(
-			'sess' => $this->session->userdata()
+			'sess' => $this->session->userdata(),
+			'd' => $question
 		);
 
 		$this->load->view('detail', $data);

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Welcome to Limit Survey | Dashboard</title>
+	<title>Responses</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -62,7 +62,7 @@
 			<div class="layout-sidebar-body">
 				<nav id="sidenav" class="sidenav-collapse collapse">
 					<ul class="sidenav">
-						<li class="sidenav-item active">
+						<li class="sidenav-item">
 							<a href="<?php echo base_url().index_with(); ?>dashboard">
 								<span class="sidenav-icon icon icon-tachometer"></span>
 								<span class="sidenav-label">Dashboard</span>
@@ -87,65 +87,49 @@
 					<h1 class="title-bar-title">Basic template</h1>
 				</div> -->
 
-				<div class="title-bar">
-					<h3 style="text-align: center;"><small>Create Questions/Survey</small></h3>
-					<hr style="border: 0; height: 1px; background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);">
-				</div>
 
 				<div class="row">
-					<div class="form-group">
-						<div class="col-md-12">
-							<div class="col-md-2">
-								<label>Title</label>
-							</div>
-							<div class='col-md-7'> 
-								<input id="subjectField" class='form-control' type='text' name='title' placeholder="Type Title of Question" required="">
-								<?php
-								$subject_sess = date("YmdHis").rand(1,9999);
-								?>
-								<input type="hidden" name="subject_sess" value="<?php echo $subject_sess; ?>" id="subject_sess">
-							</div>
-							<button id="addquestionBtn" disabled="" class="btn btn-success col-md-3" data-toggle="modal" data-target="#modalGridSystemLg" type="button">Add Question</button>
-						</div>
-					</div>
-				</div>
-
-
-				<!-- TABLE -->
-				<div class="title-bar">
-					<h3 style="text-align: center;"><small>List Questions</small></h3>
-					<hr style="border: 0; height: 1px; background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);">
-				</div>
-
-				<div class="row" style="margin-top: 20px;">
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-body">
-								<div class="table-flip-scroll">
-									<table class="table table-striped">
-										<thead>
-											<th class="text-center">Subject</th>
-											<th class="text-center">Date</th>
-											<th class="text-center">Action</th>
-										</thead>
+								<?php $i = 0; ?>
+								<?php if(isset($d)) { ?>
+								<?php foreach($d as $key => $aa) { ?>
+								<?php $i++; ?>
+									<div class='col-md-12'>
+										<?php echo "<b>". $i." . ".$key. "</b>" ; ?>
+									</div>
+									<?php $ab = -1; ?> 
+									<?php $abjad = ['A', 'B', 'C', 'D', 'E']; ?>
+									<?php foreach($aa as $keyy => $a){ ?>
+									<?php $ab++; ?>
+									<div class='col-md-12'>
+										<div class="col-md-1"></div>
+										<div class="col-md-11">
+											<?php echo $abjad[$ab] . ". ". $keyy; ?>
+										</div>
+										
+									</div>
+								<?php  } } } ?>
+							</div>
+						</div>
 
-										<tbody>
-											<?php if(isset($subjectData)) { ?>
-											<?php foreach ($subjectData as $v) { ?>
-											<tr>
-												<td class="text-center"><?php echo $v->subject; ?></td>
-												<td class="text-center"><?php echo $v->date_subject; ?></td>
-												<td class="text-center">
-													<a href="<?php echo base_url().index_with(); ?>detail/<?php echo $v->subject_sess; ?>"><span class="icon icon-eye"></span> Preview</a>
-													|
-													<a href="<?php echo base_url().index_with(); ?>response/<?php echo $v->subject_sess; ?>"><span class="icon icon-bar-chart-o"></span> View Responses</a>
-													|
-													<a href=""><span class="icon icon-trash"></span> Delete</a>
-												</td>
-											<tr>
-											<?php } } ?> 
-										</tbody>
-									</table>
+						<div class="panel m-b-lg">
+							<ul class="nav nav-tabs nav-justified">
+								<li class="active"><a href="#home-11" data-toggle="tab">Questions</a></li>
+								<li><a href="#profile-11" data-toggle="tab">Summary</a></li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="home-11">
+									<div style="padding: 10px;">
+										adasdads
+									</div>
+								</div>
+								<div class="tab-pane fade" id="profile-11">
+									<div style="padding: 10px;">
+										dsds
+									</div>
 								</div>
 							</div>
 						</div>
