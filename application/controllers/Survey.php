@@ -166,4 +166,18 @@ class Survey extends CI_Controller {
 
 		$this->load->view('detail', $data);
 	}
+
+	public function response()
+	{
+		if(empty($this->session->userdata('id_user'))) {
+			redirect('login');
+		}
+
+		$idUser = $this->session->userdata('id_user');
+
+		$data = array(
+			'sess' => $this->session->userdata()
+		);
+		$this->load->view('response', $data);
+	}
 }

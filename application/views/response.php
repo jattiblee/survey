@@ -91,7 +91,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="card">
-							<div class="card-body">
+							<!-- <div class="card-body">
 								<?php $i = 0; ?>
 								<?php if(isset($d)) { ?>
 								<?php foreach($d as $key => $aa) { ?>
@@ -111,12 +111,12 @@
 										
 									</div>
 								<?php  } } } ?>
-							</div>
+							</div> -->
 						</div>
 
 						<div class="panel m-b-lg">
 							<ul class="nav nav-tabs nav-justified">
-								<li class="active"><a href="#home-11" data-toggle="tab">Questions</a></li>
+								<li class="active"><a href="#home-11" data-toggle="tab">Individuals</a></li>
 								<li><a href="#profile-11" data-toggle="tab">Summary</a></li>
 							</ul>
 
