@@ -98,7 +98,7 @@
 							<div class="col-md-2">
 								<label>Title</label>
 							</div>
-							<div class='col-md-7'> 
+							<div class='col-md-7'>
 								<input id="subjectField" class='form-control' type='text' name='title' placeholder="Type Title of Question" required="">
 								<?php
 								$subject_sess = date("YmdHis").rand(1,9999);
@@ -143,7 +143,7 @@
 													<a href=""><span class="icon icon-trash"></span> Delete</a>
 												</td>
 											<tr>
-											<?php } } ?> 
+											<?php } } ?>
 										</tbody>
 									</table>
 								</div>
@@ -151,7 +151,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 
@@ -163,7 +163,7 @@
 							<span aria-hidden="true">×</span>
 							<span class="sr-only">Close</span>
 						</button> -->
-						<h4 class="modal-title">Test</h4>
+						<h4 class="modal-title">Create Survey</h4>
 					</div>
 					<div class="modal-body">
 						<form id="form" class="form form-horizontal">
@@ -171,17 +171,17 @@
 								<div class="col-md-12">
 									<!-- <div id="dynamicQuestion"></div> -->
 
-									<div class='form-group' style='margin-top:5px'> 
-										<div class='col-md-12'> 
-											<input id="questions" class='form-control' type='text' name='myQuestions' placeholder="Pertanyaan"> 
+									<div class='form-group' style='margin-top:5px'>
+										<div class='col-md-12'>
+											<input id="questions" class='form-control' type='text' name='myQuestions' placeholder="Pertanyaan">
 											<input type="hidden" name="generateid" id="haveid">
-										</div> 
+										</div>
 									</div>
 								</div>
 
 								<div class="col-md-12" style="margin-top: 5px">
 									<div id="dynamicInput"></div>
-									
+
 								</div>
 							</div>
 
@@ -193,10 +193,20 @@
 								<div class="col-md-12" style="margin-top: 5px;">
 									<div class="col-md-6 col-md-push-5">
 										<input type="button" class="btn btn-primary" value="Add Question" onClick="addQuestions();">
+										<a href="http://tugas.niagacode.com/index.php/dashboard" class="btn btn-info">Save</a>
+
 									</div>
 
 								</div>
 							</div>
+
+							<!-- <div class="form-group">
+								<div class="col-md-12" style="margin-top: 5px;">
+									<div class="col-md-6 col-md-push-5">
+									</div>
+
+								</div>
+							</div> -->
 
 							<div class="form-group">
 								<div class="col-md-12" style="margin-top: 5px;">
@@ -232,11 +242,11 @@
 			var ooo = $('#subjectField').val();
 
 			if (ooo !== '') {
-				$('#addquestionBtn').prop("disabled", false);	
+				$('#addquestionBtn').prop("disabled", false);
 			} else{
 				$('#addquestionBtn').prop("disabled", true);
 			}
-			
+
 		});
 
 		function getId(callback){
@@ -261,7 +271,7 @@
 			var q = document.getElementById('questions').value;
 
 			if (q !== '' && counter < 5) {
-				
+
 				var newdiv = document.createElement('div');
 
 				newdiv.innerHTML = "<div class='col-md-12' style='margin-top:5px'> <div class='col-md-1'>" + (abjad[counter]) + " </div><div class='col-md-11'> <input autofocus id=jawaban"+ counter +" type ='text' name='jawaban[]' class='form-control' placeholder='Opsi jawaban'> </div> </div>";
@@ -309,7 +319,7 @@
 			});
 
 			if (q !== '' && qOpt.length > 1) {
-				
+
 				$.ajax({
 					url : "<?php echo base_url().index_with(); ?>createquestion",
 					method : "POST",
@@ -323,7 +333,7 @@
 						var text = "<p><b>Question : "+results.numbering+" . "+results.question+"</b><br>";
 
 						$.each(results.questionOption, function (i, v) {
-							text += abjad[i] + ". "+ v + "<br>"; 
+							text += abjad[i] + ". "+ v + "<br>";
 						});
 
 						text += "</p>";
@@ -347,7 +357,7 @@
 
 		function addQuestion(divName){
 
-			var elem = document.getElementsByTagName("jawaban");  
+			var elem = document.getElementsByTagName("jawaban");
 			var arr = new Array();
 			var i = 0;
 			var iarr = 0;
